@@ -9,23 +9,23 @@ function playRound(playerSelection, computerSelection){
     switch(playerSelection){
         case "rock":
             if(computerSelection === "paper"){
-                return "c"
+                return "computer"
             } else if(computerSelection === "scissors"){
-                return "p"
+                return "player"
             }
             break
         case "paper":
             if(computerSelection === "rock"){
-                return "p"
+                return "player"
             } else if(computerSelection === "scissors"){
-                return "c"
+                return "computer"
             }
             break
         case "scissors":
             if(computerSelection === "paper"){
-                return "p"
+                return "player"
             } else if (computerSelection === "rock"){
-                return "c"
+                return "computer"
             }
             break
     }
@@ -43,12 +43,11 @@ function game(){
             let computerChoice = computerPlay()
             let dialogResults = `Player chose ${playerChoice} and Computer chose ${computerChoice}. `
             let round = playRound(playerChoice,computerChoice)
-
-            if (round == "p"){
+            if (round == "player"){
                 playerWinCounter++
                 console.log(dialogResults + "Player Wins!")
                 roundCounter++
-            } else if (round == "c"){
+            } else if (round == "computer"){
                 computerWinCounter++
                 console.log(dialogResults + "Computer Wins!")
                 roundCounter++
