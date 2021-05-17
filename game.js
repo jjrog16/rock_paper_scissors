@@ -37,8 +37,7 @@ function game(){
     let roundCounter = 0
 
     while(roundCounter < 5){
-        let playerSelection = String(window.prompt("Please enter rock, paper, or scissors. Type quit to end game."))
-        let playerChoice = playerSelection.toLowerCase()
+        let playerChoice = String(window.prompt("Please enter rock, paper, or scissors. Type quit to end game.")).toLowerCase()
         if(move.includes(playerChoice)){
             let computerChoice = computerPlay()
             let dialogResults = `Player chose ${playerChoice} and Computer chose ${computerChoice}. `
