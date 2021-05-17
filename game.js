@@ -37,7 +37,7 @@ function game(){
     let roundCounter = 0
 
     while(roundCounter < 5){
-        let playerSelection = String(window.prompt("Please enter rock, paper, or scissors"))
+        let playerSelection = String(window.prompt("Please enter rock, paper, or scissors. Type quit to end game."))
         let playerChoice = playerSelection.toLowerCase()
         if(move.includes(playerChoice)){
             let computerChoice = computerPlay()
@@ -54,6 +54,8 @@ function game(){
             } else {
                 console.log(dialogResults + "It's a tie!")
             }
+        } else if(playerChoice == "quit"){
+            break
         }
     }
 
