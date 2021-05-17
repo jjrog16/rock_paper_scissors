@@ -1,8 +1,6 @@
-
-const playerSelection = "rock"
+let move = ["rock", "paper", "scissors"]
 
 function computerPlay(){
-    let move = ["rock", "paper", "scissors"]
     let choice = Math.floor(Math.random() * 3)
     return move[choice]
 }
@@ -39,23 +37,27 @@ function game(){
     let roundCounter = 0
 
     while(roundCounter < 5){
-        let computerChoice = computerPlay()
-        let dialogResults = `Player chose ${playerSelection} and Computer chose ${computerChoice}. `
-        let round = playRound(playerSelection,computerChoice)
+        let playerSelection = String(window.prompt("Please enter rock, paper, or scissors"))
+        let playerChoice = playerSelection.toLowerCase()
+        if(move.includes(playerChoice)){
+            let computerChoice = computerPlay()
+            let dialogResults = `Player chose ${playerChoice} and Computer chose ${computerChoice}. `
+            let round = playRound(playerChoice,computerChoice)
 
-        if (round == "p"){
-            playerWinCounter++
-            console.log(dialogResults + "Player Wins!")
-            roundCounter++
-        } else if (round == "c"){
-            computerWinCounter++
-            console.log(dialogResults + "Computer Wins!")
-            roundCounter++
-        } else {
-            console.log(dialogResults + "It's a tie!")
+            if (round == "p"){
+                playerWinCounter++
+                console.log(dialogResults + "Player Wins!")
+                roundCounter++
+            } else if (round == "c"){
+                computerWinCounter++
+                console.log(dialogResults + "Computer Wins!")
+                roundCounter++
+            } else {
+                console.log(dialogResults + "It's a tie!")
+            }
         }
     }
-    
+
     let winDialog = `Player won ${playerWinCounter} times and Computer won ${computerWinCounter} times. `
 
     if(playerWinCounter > computerWinCounter){
